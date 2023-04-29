@@ -1,0 +1,8 @@
+{
+  "workbench.preferredDarkColorTheme": "Dracula",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"],
+  "DockerRun.DisableDockerrc": true
+}
