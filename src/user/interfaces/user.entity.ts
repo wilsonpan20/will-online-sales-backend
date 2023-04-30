@@ -1,9 +1,16 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity({ name: 'user' })
 export class UserEntity {
   @PrimaryGeneratedColumn('rowid')
   id: number;
+
   @Column({ name: 'name', nullable: false })
   name: string;
 
@@ -16,6 +23,15 @@ export class UserEntity {
   @Column({ name: 'cpf', nullable: false })
   cpf: string;
 
-  @Column({ name: 'password' })
+  @Column({ name: 'password', nullable: false })
   password: string;
+
+  @Column({ name: 'type_user' })
+  typeUser: number;
+
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 }
