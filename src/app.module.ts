@@ -10,7 +10,7 @@ import { CacheModule } from './cache/cache.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['.env.development.local', '.env.development'],
+      envFilePath: ['.env.development.local', '.env.development', '.env'],
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
