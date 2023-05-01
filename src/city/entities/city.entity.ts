@@ -22,6 +22,9 @@ export class CityEntity {
   @Column({ name: 'name', nullable: false })
   comprement: string;
 
+  @Column({ name: 'name', nullable: false })
+  name: string
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 

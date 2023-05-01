@@ -1,11 +1,11 @@
-import { CityEntity } from 'src/city/entities/city.entity';
+import { CityEntity } from '../../city/entities/city.entity';
 import {
   Column,
-  Entity,
-  PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn,
+  Entity,
   OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity({ name: 'state' })
@@ -14,7 +14,10 @@ export class StateEntity {
   id: number;
 
   @Column({ name: 'name', nullable: false })
-  comprement: string;
+  name: string;
+
+  @Column({ name: 'uf', nullable: false })
+  uf: string;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
