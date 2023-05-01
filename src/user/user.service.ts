@@ -23,6 +23,18 @@ export class UserService {
       password: passwordHashed,
     });
   }
+  async getUserByIdUsingRelations(userId: number): Promise<UserEntity> {
+
+    return this.userRepository.findOne({
+      where: {
+        id: userId
+      },
+      relations: ['addresses']
+
+    })
+
+  }
+
   async getAllUser(): Promise<UserEntity[]> {
     return this.userRepository.find();
   }
