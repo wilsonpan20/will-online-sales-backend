@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CityEntity } from './entities/city.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -10,11 +10,22 @@ export class CityService {
     @InjectRepository(CityEntity)
     private readonly cityRepository: Repository<CityEntity>,
     private readonly cacheService: CacheService,
-  ) {}
+  ) { }
 
   async getAllCitiesByStateId(stateId: number): Promise<CityEntity[]> {
     return this.cacheService.getCache<CityEntity[]>(`state_${stateId}`, () => {
       return this.cityRepository.find({ where: { stateId } });
     });
+  }
+  async findCityById(cityId: number): Promise<CityEntity> {
+    const city = await this.cityRepository.findOne({
+      where: {
+        id: cityId
+      }
+    })
+    if (!city) {
+      throw new NotFoundException(`CityId:  ${cityId} not found`)
+    }
+    return city
   }
 }
