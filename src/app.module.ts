@@ -22,7 +22,7 @@ import { CacheModule } from './cache/cache.module';
       entities: [`${__dirname}/**/*.entity{.js,.ts}`],
       migrations: [`${__dirname}/migration/{.ts,*.js}`],
       migrationsRun: true,
-      //synchronize: true,
+      //synchronize: true, //habilitar em desenvolvimento se subir para produção risco de perda de dados
     }),
 
     UserModule,
