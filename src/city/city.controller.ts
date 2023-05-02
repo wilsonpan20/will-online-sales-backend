@@ -5,6 +5,11 @@ import { CityEntity } from './entities/city.entity';
 @Controller('city')
 export class CityController {
   constructor(private readonly CityService: CityService) { }
+  @Get()
+  async getAllCity() {
+    return this.CityService.getAllCity()
+
+  }
   @Get('/:stateId')
   async getAllCitiesByStateId(
     @Param('stateId') stateId: number,

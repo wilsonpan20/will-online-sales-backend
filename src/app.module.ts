@@ -6,11 +6,12 @@ import { StateModule } from './state/state.module';
 import { CityModule } from './city/city.module';
 import { AddressModule } from './address/address.module';
 import { CacheModule } from './cache/cache.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['.env.development.local', '.env.development', '.env'],
+      envFilePath: ['.env.development.local', '.env.development'],
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -22,7 +23,7 @@ import { CacheModule } from './cache/cache.module';
       entities: [`${__dirname}/**/*.entity{.js,.ts}`],
       migrations: [`${__dirname}/migration/{.ts,*.js}`],
       migrationsRun: true,
-      //synchronize: true, //habilitar em desenvolvimento se subir para produção risco de perda de dados
+      //synchronize: true, //nao habilitar em produção risco de perda de dados
     }),
 
     UserModule,
@@ -34,6 +35,8 @@ import { CacheModule } from './cache/cache.module';
     AddressModule,
 
     CacheModule,
+
+    AuthModule,
   ],
   controllers: [],
   providers: [],
