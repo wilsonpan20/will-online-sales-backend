@@ -19,7 +19,7 @@ export class UserService {
 
     return this.userRepository.save({
       ...CreateUserDto,
-      typeUser: 2,
+      typeUser: 1,
       password: passwordHashed,
     });
   }

@@ -2,6 +2,8 @@ import { Controller, Param, Post, UsePipes, ValidationPipe, Body } from '@nestjs
 import { AddressService } from './address.service';
 import { CreateAddressDto } from './dtos/createAddress.dto';
 import { AddressEntity } from './entities/address.entity';
+import { Roles } from 'src/decorators/role.decorator';
+import { UserType } from 'src/user/enum/user-type.enum';
 
 @Controller('address')
 export class AddressController {
@@ -10,6 +12,7 @@ export class AddressController {
 
 
   ) { }
+  @Roles(UserType.User)
   @Post('/:userId')
   @UsePipes(ValidationPipe)
 
