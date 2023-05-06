@@ -3,7 +3,7 @@ import { CreateUserDto } from './dtos/createUser.dto';
 import { UserService } from './user.service';
 import { UserEntity } from './entities/user.entity';
 import { ReturnUserDto } from './dtos/returnUser.dto';
-import { ReturnAddressDto } from 'src/address/dtos/returnAddress.dto';
+import { ReturnAddressDto } from '../address/dtos/returnAddress.dto';
 
 @Controller('user')
 export class UserController {
