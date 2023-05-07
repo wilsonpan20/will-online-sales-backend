@@ -1,0 +1,1 @@
+export const jwtMock = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidHlwZVVzZXIiOjEsImlhdCI6MTY4MzQ4Njc4MSwiZXhwIjoxNjg0MDkxNTgxfQ.crqoQ_Dem_pZdHO3-FPIgni1ak03Sk4GohPH-z8m8NQ"
