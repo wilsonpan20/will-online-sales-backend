@@ -19,7 +19,7 @@ export class AddressEntity {
   userId: number;
 
   @Column({ name: 'complement' })
-  comprement: string;
+  complement: string;
 
   @Column({ name: 'number', nullable: false })
   numberAddress: number;

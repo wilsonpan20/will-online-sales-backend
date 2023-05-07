@@ -49,20 +49,24 @@ export class UserService {
   }
 
   async getAllUser(): Promise<UserEntity[]> {
+    console.log('chamou todos')
     return this.userRepository.find();
   }
 
-  async findUSerById(userId: number): Promise<UserEntity> {
+  async findUserById(userId: number): Promise<UserEntity> {
     const user = await this.userRepository.findOne({
       where: {
         id: userId
       }
     })
+
     if (!user) {
       throw new NotFoundException(`UserId: ${userId}  Not Found`)
     }
-    return user
+
+    return user;
   }
+
   async findUSerByEmail(email: string): Promise<UserEntity> {
     const user = await this.userRepository.findOne({
       where: {

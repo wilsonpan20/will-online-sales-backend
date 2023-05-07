@@ -20,7 +20,7 @@ export class CityEntity {
   stateId: number;
 
   @Column({ name: 'name', nullable: false })
-  comprement: string;
+  complement: string;
 
   @Column({ name: 'name', nullable: false })
   name: string

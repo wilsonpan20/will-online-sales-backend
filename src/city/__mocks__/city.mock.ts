@@ -4,7 +4,7 @@ export const cityMock: CityEntity = {
   createdAt: new Date(),
   id: 12123,
   name: 'yghghghgh',
-  comprement: 'rua',
+  complement: 'rua',
   stateId: 123545,
   updatedAt: new Date()
 

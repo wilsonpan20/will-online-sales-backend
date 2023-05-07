@@ -9,7 +9,7 @@ export class ReturnAddressDto {
   city?: ReturCityDto
 
   constructor(address: AddressEntity) {
-    this.complement = address.comprement
+    this.complement = address.complement
     this.numberAddress = address.numberAddress
     this.cep = address.cep
     this.city = address.city ? new ReturCityDto(address.city) : undefined

@@ -53,7 +53,7 @@ describe('UserService', () => {
   });
 
   it('should return user in findUserById', async () => {
-    const user = await service.findUSerById(userEntityMock.id)
+    const user = await service.findUserById(userEntityMock.id)
 
     expect(user).toEqual(userEntityMock)
 
@@ -61,13 +61,13 @@ describe('UserService', () => {
   it('should return error in findUserById', async () => {
     jest.spyOn(userRepository, 'findOne').mockResolvedValue(undefined)
 
-    expect(service.findUSerById(userEntityMock.id)).rejects.toThrowError()
+    expect(service.findUserById(userEntityMock.id)).rejects.toThrowError()
 
   });
   it('should return error in findUserById (Erro Db)', async () => {
     jest.spyOn(userRepository, 'findOne').mockRejectedValueOnce(new Error())
 
-    expect(service.findUSerById(userEntityMock.id)).rejects.toThrowError()
+    expect(service.findUserById(userEntityMock.id)).rejects.toThrowError()
 
   });
 
