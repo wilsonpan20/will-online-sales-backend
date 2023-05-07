@@ -9,11 +9,9 @@ import { CACHE_MANAGER } from '@nestjs/cache-manager';
 
 
 
-
 describe('UserService', () => {
   let service: CacheService;
   let cacheManager: Cache
-
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
