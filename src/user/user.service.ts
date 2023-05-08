@@ -49,7 +49,6 @@ export class UserService {
   }
 
   async getAllUser(): Promise<UserEntity[]> {
-    console.log('chamou todos')
     return this.userRepository.find();
   }
 
