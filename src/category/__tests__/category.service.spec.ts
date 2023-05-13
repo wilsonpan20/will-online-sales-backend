@@ -3,6 +3,7 @@ import { CategoryService } from '../category.service';
 import { CategoryEntity } from '../entities/category.entity';
 import { Repository } from 'typeorm';
 import { getRepositoryToken } from '@nestjs/typeorm';
+import { categoryMock } from '../__mocks__/category.mock';
 
 describe('CategoryService', () => {
   let service: CategoryService;
@@ -13,8 +14,8 @@ describe('CategoryService', () => {
       providers: [CategoryService, {
         provide: getRepositoryToken(CategoryEntity),
         useValue: {
-          find: jest.fn().mockResolvedValue({}),
-          save: jest.fn().mockReturnValue({})
+          find: jest.fn().mockResolvedValue([categoryMock]),
+          save: jest.fn().mockReturnValue([categoryMock])
         }
       }],
     }).compile();
@@ -27,5 +28,19 @@ describe('CategoryService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
     expect(categoryRepository).toBeDefined();
+  });
+  it('should return list category', async () => {
+    const category = await service.findAllCategories()
+    expect(category).toEqual([categoryMock]);
+  });
+  it('should return error in list category empty ', async () => {
+    jest.spyOn(categoryRepository, 'find').mockResolvedValue([])
+
+    expect(service.findAllCategories()).rejects.toThrowError();
+  });
+  it('should return error in list category exception ', async () => {
+    jest.spyOn(categoryRepository, 'find').mockRejectedValue(new Error())
+
+    expect(service.findAllCategories()).rejects.toThrowError();
   });
 });
